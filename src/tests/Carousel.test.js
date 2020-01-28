@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Carousel from '../Carousel';
-import CarouselButton from '../CarouselButton';
 import CarouselSlide from '../CarouselSlide';
 
 describe('Carousel', () => {
