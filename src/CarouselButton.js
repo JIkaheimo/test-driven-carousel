@@ -5,6 +5,7 @@ const CarouselButton = (props) => <button {...props} />;
 
 CarouselButton.propTypes = {
   children: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default CarouselButton;
