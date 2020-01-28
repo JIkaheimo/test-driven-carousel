@@ -1,3 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Image has expected static styles 1`] = `ReactWrapper {}`;
+exports[`CarouselSlide renders correctly 1`] = `
+<figure>
+  <CarouselSlide__CarouselSlideImage
+    height={500}
+    src="https://example.com/default.jpg"
+  />
+  <figcaption>
+    <strong>
+      Description
+    </strong>
+     
+    Attribution
+  </figcaption>
+</figure>
+`;
+
+exports[`Img renders correctly 1`] = `
+<img
+  className="gKFBMg"
+  height={500}
+  src="https://example.com/default.jpg"
+/>
+`;
