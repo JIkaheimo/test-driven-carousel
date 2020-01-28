@@ -1,18 +1,28 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import CarouselSlide from '../CarouselSlide';
+import CarouselSlide, { ImageStyled } from '../CarouselSlide';
 
 describe('Img', () => {
   let mounted;
   const imgUrl = 'https://example.com/default.jpg';
 
   beforeEach(() => {
-    const Img = CarouselSlide.defaultProps.Img;
-    mounted = mount(<Img src={imgUrl} height={500} />);
+    mounted = mount(<ImageStyled src={imgUrl} height={500} />);
   });
 
   it('renders an <img> with the given src', () => {
     expect(mounted.containsMatchingElement(<img src={imgUrl} />)).toBe(true);
+  });
+
+  it('has expected static styles', () => {
+    expect(mounted).toHaveStyleRule('width', '100%');
+    expect(mounted).toHaveStyleRule('object-fit', 'cover');
+  });
+
+  it('uses height as the height of style property', () => {
+    expect(mounted).toHaveStyleRule('height', '500px');
+    mounted.setProps({ height: 'calc(100vh - 100px)' });
+    expect(mounted).toHaveStyleRule('height', 'calc(100vh - 100px)');
   });
 });
 
@@ -28,14 +38,14 @@ describe('CarouselSlide', () => {
   });
 
   it('renders an props.Img and a <figcaption> as children', () => {
-    expect(wrapper.childAt(0).type()).toBe(CarouselSlide.defaultProps.Img);
+    expect(wrapper.childAt(0).type()).toBe(ImageStyled);
     expect(wrapper.childAt(1).type()).toBe('figcaption');
   });
 
   it('passes `imageUrl` through to props.Img', () => {
     const imgUrl = 'https://example.com/image.png';
     wrapper.setProps({ imgUrl });
-    const img = wrapper.find(CarouselSlide.defaultProps.Img);
+    const img = wrapper.find(ImageStyled);
     expect(img.prop('src')).toBe(imgUrl);
   });
 
