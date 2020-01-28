@@ -6,7 +6,7 @@ const getUsernameUrl = (username) => `https://unsplash.com/@${username}?${referr
 
 const getAttribution = ({ name, username }) => (
   <>
-    Photo by <a href={getUsernameUrl(username)}>{name}</a> on{''}
+    Photo by <a href={getUsernameUrl(username)}>{name}</a> on{' '}
     <a href={`https://unsplash.com/?${referralParams}`}>Unsplash</a>
   </>
 );
